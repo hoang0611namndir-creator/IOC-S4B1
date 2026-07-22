@@ -21,7 +21,7 @@ public class InstructorController {
     }
 
     @GetMapping
-    public ResponseEntity<List<com.example.coursemanagement.models.Instructor>> getAll() {
+    public ResponseEntity<List<org.example.coursemanagement.models.Instructor>> getAll() {
 
         return ResponseEntity.ok(service.getAllInstructor());
 

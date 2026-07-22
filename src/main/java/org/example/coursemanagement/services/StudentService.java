@@ -1,23 +1,23 @@
 package org.example.coursemanagement.services;
 
 import org.example.coursemanagement.models.Student;
-import org.example.coursemanagement.models.StudentEnrollment;
-import org.example.coursemanagement.repositories.StudentEnrollmentRepository;
 import org.example.coursemanagement.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class EnrollmentService {
+@Service
+public class StudentService {
 
-    private final StudentEnrollmentRepository repository;
+    private final StudentRepository repository;
 
     @Autowired
-    public EnrollmentService(StudentEnrollmentRepository repository){
+    public StudentService(StudentRepository repository){
         this.repository=repository;
     }
 
-    public List<StudentEnrollment> getAllStudents(){
+    public List<Student> getAllStudents(){
         return repository.findAll();
     }
 }

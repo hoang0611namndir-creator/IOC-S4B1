@@ -8,14 +8,14 @@ import java.util.List;
 @Service
 public class CourseService {
 
-    private final com.example.coursemanagement.repositories.CourseRepository repository;
+    private final org.example.coursemanagement.repositories.CourseRepository repository;
 
     @Autowired
-    public CourseService(com.example.coursemanagement.repositories.CourseRepository repository) {
+    public CourseService(org.example.coursemanagement.repositories.CourseRepository repository) {
         this.repository = repository;
     }
 
-    public List<com.example.coursemanagement.models.Course> getAllCourse() {
+    public List<org.example.coursemanagement.models.Course> getAllCourse() {
         return repository.findAll();
     }
 }

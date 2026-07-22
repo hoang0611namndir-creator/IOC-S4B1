@@ -1,28 +1,34 @@
 package org.example.coursemanagement.models;
 
-import org.example.coursemanagement.models.Course;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="instructors")
-public class Instructor {
+@Table(name = "students")
+public class Student {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="name",nullable=false,length=100)
+    @Column(name="name", nullable=false,length=100)
     private String name;
 
     @Column(name="email",nullable=false)
     private String email;
 
-    @OneToMany(mappedBy="instructor")
-    private List<org.example.coursemanagement.models.Course> courses = new ArrayList<>();
+    @OneToMany(mappedBy = "student")
+    private List<StudentEnrollment> enrollments = new ArrayList<>();
 
-    public Instructor(){}
+    public Student() {
+    }
+
+    public Student(Long id,String name,String email){
+        this.id=id;
+        this.name=name;
+        this.email=email;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -36,8 +42,8 @@ public class Instructor {
         this.email = email;
     }
 
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
+    public void setEnrollments(List<StudentEnrollment> enrollments) {
+        this.enrollments = enrollments;
     }
 
     public Long getId() {
@@ -52,7 +58,7 @@ public class Instructor {
         return email;
     }
 
-    public List<Course> getCourses() {
-        return courses;
+    public List<StudentEnrollment> getEnrollments() {
+        return enrollments;
     }
 }

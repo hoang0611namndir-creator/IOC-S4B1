@@ -1,4 +1,4 @@
-package com.example.coursemanagement.enums;
+package org.example.coursemanagement.enums;
 
 public enum CourseStatus {
 
